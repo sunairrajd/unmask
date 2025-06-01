@@ -179,24 +179,24 @@
 
         .download-btn {
             display: inline-block;
-            background: #333333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 0.875rem 2rem;
             border-radius: 8px;
             text-decoration: none;
             font-size: 1rem;
             font-weight: 600;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 16px rgba(102, 126, 234, 0.4);
             transition: all 0.2s ease;
             border: none;
             cursor: pointer;
-            margin-top: 1rem;
+            margin: 2rem 0;
         }
 
         .download-btn:hover {
             transform: translateY(-2px);
-            background: #444444;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
         }
 
         @media (max-width: 768px) {
@@ -248,6 +248,10 @@
         
         <h1>Unmask</h1>
         <p class="subtitle">We snoop on extensions before they snoop on you.</p>
+        
+        <a href="#" class="download-btn" onclick="downloadExtension()">
+            📥 Download Extension
+        </a>
         
         <div class="features">
             <div class="feature">
@@ -314,10 +318,6 @@
                 </div>
             </div>
         </div>
-        
-        <a href="#" class="download-btn" onclick="downloadExtension()">
-            📥 Download Extension
-        </a>
     </div>
 
     <script>
@@ -325,7 +325,7 @@
             // Replace this URL with the actual download link for your extension
             // For Chrome Web Store: https://chrome.google.com/webstore/detail/your-extension-id
             // For direct download: link to your .zip file
-            const downloadUrl = 'https://github.com/yourusername/unmask/releases/latest/download/unmask-extension.zip';
+            const downloadUrl = 'https://github.com/sunairrajd/unmask/unmask.crx';
             
             // Create a temporary link and trigger download
             const link = document.createElement('a');
