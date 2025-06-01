@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unmask: Privacy Policy Analyzer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1a1a1a;
+            min-height: 100vh;
+            color: white;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: white;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .logo img {
+            width: 80px;
+            height: 80px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 1.5rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: transform 0.2s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .feature-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .feature p {
+            opacity: 0.85;
+            font-size: 0.875rem;
+        }
+
+        .info-sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .info-section {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .info-section h2 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-align: left;
+        }
+
+        .step-number {
+            background: #333;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .step p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .use-cases {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .use-case {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            text-align: left;
+        }
+
+        .use-case-icon {
+            font-size: 1.25rem;
+            flex-shrink: 0;
+            margin-top: 0.125rem;
+        }
+
+        .use-case p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: #333333;
+            color: white;
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            background: #444444;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .info-sections {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .info-section {
+                padding: 1.5rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .step {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .use-case {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="icon128.png" alt="Extension Icon">
+        </div>
+        
+        <h1>Unmask</h1>
+        <p class="subtitle">We snoop on extensions before they snoop on you.</p>
+        
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">🔍</div>
+                <h3>Privacy Analysis</h3>
+                <p>Automatically analyzes privacy policies of browser extensions to reveal what data they collect.</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">🛡️</div>
+                <h3>Risk Assessment</h3>
+                <p>Get clear risk ratings and understand potential privacy implications before installing extensions.</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <h3>Instant Results</h3>
+                <p>Real-time analysis powered by AI to give you immediate insights into extension privacy practices.</p>
+            </div>
+        </div>
+
+        <div class="info-sections">
+            <div class="info-section">
+                <h2>How to Use</h2>
+                <div class="steps">
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <p>Install the Unmask extension in your browser</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <p>Visit any extension page on the Edge Add-ons Store</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <p>Click the Unmask icon to analyze the extension's privacy policy</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <p>Review the privacy risk assessment and make informed decisions</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h2>When to Use</h2>
+                <div class="use-cases">
+                    <div class="use-case">
+                        <div class="use-case-icon">🛒</div>
+                        <p><strong>Before installing new extensions</strong> - Check privacy implications first</p>
+                    </div>
+                    <div class="use-case">
+                        <div class="use-case-icon">🔄</div>
+                        <p><strong>Reviewing existing extensions</strong> - Audit your current browser extensions</p>
+                    </div>
+                    <div class="use-case">
+                        <div class="use-case-icon">👥</div>
+                        <p><strong>Recommending extensions</strong> - Share privacy-conscious recommendations</p>
+                    </div>
+                    <div class="use-case">
+                        <div class="use-case-icon">🏢</div>
+                        <p><strong>Enterprise environments</strong> - Ensure compliance with privacy policies</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <a href="#" class="download-btn" onclick="downloadExtension()">
+            📥 Download Extension
+        </a>
+    </div>
+
+    <script>
+        function downloadExtension() {
+            // Replace this URL with the actual download link for your extension
+            // For Chrome Web Store: https://chrome.google.com/webstore/detail/your-extension-id
+            // For direct download: link to your .zip file
+            const downloadUrl = 'https://github.com/yourusername/unmask/releases/latest/download/unmask-extension.zip';
+            
+            // Create a temporary link and trigger download
+            const link = document.createElement('a');
+            link.href = downloadUrl;
+            link.download = 'unmask-extension.zip';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+</body>
+</html>
