@@ -322,15 +322,12 @@
 
     <script>
         function downloadExtension() {
-            // Replace this URL with the actual download link for your extension
-            // For Chrome Web Store: https://chrome.google.com/webstore/detail/your-extension-id
-            // For direct download: link to your .zip file
-            const downloadUrl = 'https://github.com/sunairrajd/unmask/unmask.crx';
-            
-            // Create a temporary link and trigger download
+            // Create a temporary link element
             const link = document.createElement('a');
-            link.href = downloadUrl;
-            link.download = 'unmask-extension.zip';
+            link.href = 'unmask.crx';  // Path to your .crx file
+            link.download = 'unmask.crx';  // Filename for download
+            
+            // Append to body, click, and remove
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
